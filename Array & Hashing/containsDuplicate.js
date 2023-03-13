@@ -1,18 +1,25 @@
-// Given an integer array nums, return true if any value appears at least twice
-// in the array, and return false if every element is distinct.
-
-
+// my solution
 var containsDuplicate = function (nums) {
-  let set = new Set(nums)
+  const map = new Map();
+  let result = false;
 
-  for (let i = 0; i < nums.length; i++) {
-    if(nums[i] === set)
+  nums.forEach((item, index) => {
+    map.set(item, map.get(item) ? map.get(item) + 1 : 1);
+  });
 
-  }
-
-  return true
-
+  map.forEach((value, key) => {
+    console.log(map.get(key));
+    if (map.get(key) > 1) {
+      result = true;
+    }
+  });
+  return result;
 };
 
-
 console.log("result: ", containsDuplicate([1, 2, 3, 1]));
+
+// easy solution from discussion
+// var containsDuplicate = function (nums) {
+//   const s = new Set(nums);
+//   return s.size !== nums.length;
+// };
