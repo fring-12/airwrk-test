@@ -8,7 +8,6 @@ var groupAnagrams = function (strs) {
       result[key] = [s];
     }
   }
-  console.log(Object.values(result));
 
   return Object.values(result);
 };
